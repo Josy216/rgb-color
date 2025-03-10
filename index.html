@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="Joseph Teka" content="Rgb color, getColor.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>change bg</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      #cont {
+        background: #ccc;
+        padding: 12px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 2rem;
+      }
+      #cont p {
+        padding: 10px 0;
+        margin: 10px 0;
+      }
+      button {
+        background: linear-gradient(to right, yellow, red);
+        width: 250px;
+        padding: 17px 0;
+        border: 0;
+        outline: 0;
+        cursor: pointer;
+        font-size: 2rem;
+        border-radius: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cont">
+      <p>copy code:</p>
+      <p id="para" contenteditable="true"></p>
+      <button id="btn">genarate color</button>
+    </div>
+    <script>
+      let btn = document.getElementById("btn");
+      let para = document.getElementById("para");
+      const randomNum = () => {
+        return Math.floor(Math.random() * 256);
+      };
+
+      let changeColor = () => {
+        let randomColor = `rgb(${randomNum()},${randomNum()},${randomNum()})`;
+        document.body.style.backgroundColor = randomColor;
+        para.textContent = randomColor;
+      };
+      btn.addEventListener("click", changeColor);
+      window.addEventListener("load", changeColor);
+    </script>
+  </body>
+</html>
